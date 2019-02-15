@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PGK.Extensions.Core</id>
+    <version>1.0.0</version>
+    <title></title>
+    <authors>Patrick A. Lorenz,Maikel Lehtveer</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/mlehtveer/.NET-Extensions</projectUrl>
+    <description>.NET Extensions Methods Library for C#</description>
+  </metadata>
+  <files>
+    <file src="Build\netcoreapp2.1\PGK.Extensions.Core.deps.json" target="lib\netcoreapp2.1\PGK.Extensions.Core.deps.json" />
+    <file src="Build\netcoreapp2.1\PGK.Extensions.Core.dll" target="lib\netcoreapp2.1\PGK.Extensions.Core.dll" />
+    <file src="Build\netcoreapp2.1\PGK.Extensions.Core.pdb" target="lib\netcoreapp2.1\PGK.Extensions.Core.pdb" />
+  </files>
+</package>
