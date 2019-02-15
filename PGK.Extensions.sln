@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions", "PGK.Extensions\PGK.Extensions.csproj", "{1CA53630-FE88-4618-BA42-78CF7F9FC1B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Web", "PGK.Extensions.Web\PGK.Extensions.Web.csproj", "{F2F9CDC0-CE88-4762-A5C3-8553B83B926B}"
@@ -28,10 +30,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions4", "PGK.Exte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Test4", "PGK.Extensions.Test4\PGK.Extensions.Test4.csproj", "{12031EE3-0471-42BA-92DA-BE088DE4B8FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Core", "PGK.Extensions.Core\PGK.Extensions.Core.csproj", "{3A5197D9-54FB-427A-AF2D-DE9778C4680E}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = PGK.Extensions.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -141,18 +142,26 @@ Global
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|x86.ActiveCfg = Release|Any CPU
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Debug|x86.ActiveCfg = Debug|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Debug|x86.Build.0 = Debug|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Release|Any CPU.ActiveCfg = Release|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Release|Mixed Platforms.Build.0 = Release|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Release|x86.ActiveCfg = Release|x86
-		{02DDA5ED-7506-4221-8C41-609A9676AAB5}.Release|x86.Build.0 = Release|x86
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|x86.Build.0 = Debug|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|x86.ActiveCfg = Release|Any CPU
+		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {945316F2-AB3B-40B7-A62E-CBD577177C4E}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PGK.Extensions.vsmdi
 	EndGlobalSection
 EndGlobal
