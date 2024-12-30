@@ -115,8 +115,10 @@ public static class StreamExtensions
 	/// <returns>The source stream.</returns>
 	public static Stream CopyTo(this Stream stream, Stream targetStream)
 	{
-		return stream.CopyTo(targetStream, 4096);
-	}
+        stream.CopyTo(targetStream, 4096);
+
+        return targetStream;
+    }
 
 	/// <summary>
 	/// 	Copies one stream into a another one.

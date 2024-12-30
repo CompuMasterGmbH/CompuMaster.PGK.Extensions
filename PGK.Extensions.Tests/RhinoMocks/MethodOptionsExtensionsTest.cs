@@ -4,7 +4,6 @@ using PGK.Extensions.RhinoMocks;
 using Rhino.Mocks;
 using Rhino.Mocks.Exceptions;
 using Should.Fluent;
-using ShouldAssert = Should.Core.Assertions.Assert;
 
 namespace PGK.Extensions.Tests.RhinoMocks
 {

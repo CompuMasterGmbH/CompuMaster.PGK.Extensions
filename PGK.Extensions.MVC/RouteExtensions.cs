@@ -1,5 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿#if COMPILING_ENABLED
+using System;
 using System.Web.Routing;
 
 public static class RouteExtensions
@@ -93,3 +93,4 @@ public static class RouteExtensions
 		return routes.MapRoute(name, url, defaults, constraints, namespaces).SetRouteName(name);
 	}
 }
+#endif

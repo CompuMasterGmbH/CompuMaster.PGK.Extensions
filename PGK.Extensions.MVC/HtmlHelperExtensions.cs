@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿#if COMPILING_ENABLED
+using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System;
 using System.Web;
 using System.Web.Routing;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Html;
+using HtmlString = System.Web.HtmlString;
 
 ///<summary>
 /// A bunch of HTML helper extensions
@@ -26,7 +30,7 @@ public static class HTMLHelperExtensions
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString ImageLink(this HtmlHelper htmlHelper, string imgSrc = null, string alt = null, string actionName = null, string controllerName = null, object routeValues = null, object htmlAttributes = null, object imgHtmlAttributes = null)
+	public static HtmlString ImageLink(this IHtmlHelper htmlHelper, string imgSrc = null, string alt = null, string actionName = null, string controllerName = null, object routeValues = null, object htmlAttributes = null, object imgHtmlAttributes = null)
 	{
 		var urlHelper = ((Controller)htmlHelper.ViewContext.Controller).Url;
 		var imgTag = new TagBuilder("img");
@@ -39,7 +43,7 @@ public static class HTMLHelperExtensions
 		imglink.InnerHtml = imgTag.ToString(TagRenderMode.SelfClosing);
 		imglink.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
 
-		return MvcHtmlString.Create(imglink.ToString());
+		return HtmlString.Create(imglink.ToString());
 	}
 
 	///<summary>
@@ -53,13 +57,13 @@ public static class HTMLHelperExtensions
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString Image(this HtmlHelper helper, string src, string alt = null, object htmlAttributes = null)
+	public static HtmlString Image(this IHtmlHelper helper, string src, string alt = null, object htmlAttributes = null)
 	{
 		var tb = new TagBuilder("img");
 		tb.Attributes.Add("src", helper.Encode(src));
 		tb.Attributes.Add("alt", helper.Encode(alt));
 		tb.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
-		return MvcHtmlString.Create(tb.ToString(TagRenderMode.SelfClosing));
+		return HtmlString.Create(tb.ToString(TagRenderMode.SelfClosing));
 	}
 
 	/// <summary>
@@ -73,20 +77,20 @@ public static class HTMLHelperExtensions
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString Label(this HtmlHelper helper, string target, string text, object htmlAttributes = null)
+	public static HtmlString Label(this IHtmlHelper helper, string target, string text, object htmlAttributes = null)
 	{
 		var tb = new TagBuilder("label");
 		tb.MergeAttribute("for", target);
 		tb.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
 		tb.SetInnerText(text);
 
-		return MvcHtmlString.Create(tb.ToString());
+		return HtmlString.Create(tb.ToString());
 	}
 
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString Tag(this HtmlHelper htmlHelper,
+	public static HtmlString Tag(this IHtmlHelper htmlHelper,
 			string tag = null,
 			string src = null, string href = null,
 			string type = null,
@@ -109,13 +113,13 @@ public static class HTMLHelperExtensions
 		if ((new[] { "script", "div", "p", "a", "h1", "h2", "h3", "h4", "h5", "h6", "center", "table", "form" }).Contains(tag.ToLower()))
 			sb.Append("></" + tag + ">");
 		else sb.Append(" />");
-		return MvcHtmlString.Create(sb.ToString());
+		return HtmlString.Create(sb.ToString());
 	}
 
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	private static void AppendOptionalAttrib(HtmlHelper htmlHelper, StringBuilder sb,
+	private static void AppendOptionalAttrib(IHtmlHelper htmlHelper, StringBuilder sb,
 			string attribName, string attribValue, bool? encode = null,
 			bool? resolveAbsUrl = null, bool? validateScriptableIdent = null, bool? validateClass = null)
 	{
@@ -181,17 +185,17 @@ public static class HTMLHelperExtensions
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString CurrentAction(this HtmlHelper htmlHelper)
+	public static HtmlString CurrentAction(this IHtmlHelper htmlHelper)
 	{
-		return MvcHtmlString.Create(htmlHelper.ViewContext.RouteData.Values["action"].ToString());
+		return HtmlString.Create(htmlHelper.ViewContext.RouteData.Values["action"].ToString());
 	}
 
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString CurrentController(this HtmlHelper htmlHelper)
+	public static HtmlString CurrentController(this IHtmlHelper htmlHelper)
 	{
-		return MvcHtmlString.Create(htmlHelper.ViewContext.RouteData.Values["controller"].ToString());
+		return HtmlString.Create(htmlHelper.ViewContext.RouteData.Values["controller"].ToString());
 	}
 
 	//public static MvcForm BeginForm(this HtmlHelper htmlHelper, object routeValues, FormMethod method, object htmlAttributes)
@@ -202,8 +206,9 @@ public static class HTMLHelperExtensions
 	/// <remarks>
 	/// 	Contributed by Michael T, http://about.me/MichaelTran
 	/// </remarks>
-	public static MvcHtmlString Render(this HtmlHelper html, string content)
+	public static HtmlString Render(this IHtmlHelper html, string content)
 	{
-		return MvcHtmlString.Create(content);
+		return HtmlString.Create(content);
 	}
 }
+#endif

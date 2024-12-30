@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions", "PGK.Extensions\PGK.Extensions.csproj", "{1CA53630-FE88-4618-BA42-78CF7F9FC1B3}"
 EndProject
@@ -29,8 +29,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions4", "PGK.Extensions4\PGK.Extensions4.csproj", "{0E7BAF97-BD4B-480C-912C-2503875A9053}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Test4", "PGK.Extensions.Test4\PGK.Extensions.Test4.csproj", "{12031EE3-0471-42BA-92DA-BE088DE4B8FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Core", "PGK.Extensions.Core\PGK.Extensions.Core.csproj", "{3A5197D9-54FB-427A-AF2D-DE9778C4680E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,18 +140,6 @@ Global
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|x86.ActiveCfg = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Debug|x86.Build.0 = Debug|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|x86.ActiveCfg = Release|Any CPU
-		{3A5197D9-54FB-427A-AF2D-DE9778C4680E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
