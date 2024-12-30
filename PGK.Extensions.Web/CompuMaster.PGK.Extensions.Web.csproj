@@ -16,7 +16,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PGK.Extensions\PGK.Extensions.csproj" />
+    <ProjectReference Include="..\PGK.Extensions\CompuMaster.PGK.Extensions.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />

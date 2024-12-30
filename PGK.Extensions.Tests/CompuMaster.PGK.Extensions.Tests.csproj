@@ -13,16 +13,20 @@
     <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net48'" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PGK.Extensions.RhinoMocks\PGK.Extensions.RhinoMocks.csproj" />
-    <ProjectReference Include="..\PGK.Extensions\PGK.Extensions.csproj" />
+    <ProjectReference Include="..\PGK.Extensions.RhinoMocks\CompuMaster.PGK.Extensions.RhinoMocks.csproj" />
+    <ProjectReference Include="..\PGK.Extensions\CompuMaster.PGK.Extensions.csproj" />
   </ItemGroup>
+  <!--
   <ItemGroup>
     <Content Include="FilesForTestingPurpose\AnotherFile.txt" />
     <Content Include="FilesForTestingPurpose\PGK.Extensions.sln" />
     <Content Include="Used_for_testing.txt" />
   </ItemGroup>
+  -->
   <ItemGroup>
     <PackageReference Include="JUnitTestLogger4GitHub" Version="1.1.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="Microsoft.Testing.Platform" Version="1.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
     <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
     <PackageReference Include="CompuMaster.Test.Should" Version="2.0.1" />

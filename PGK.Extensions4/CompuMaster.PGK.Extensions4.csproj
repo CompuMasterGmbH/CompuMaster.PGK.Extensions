@@ -3,24 +3,21 @@
     <TargetFrameworks>net48;net8.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyTitle>PGK.Extensions.Test4</AssemblyTitle>
-    <Product>PGK.Extensions.Test4</Product>
+    <AssemblyTitle>PGK.Extensions4</AssemblyTitle>
+    <Product>PGK.Extensions4</Product>
     <Copyright>Copyright ©  2011</Copyright>
+    <Version>2.0.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Update="System.Core">
-    </Reference>
+    <ProjectReference Include="..\PGK.Extensions\CompuMaster.PGK.Extensions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PGK.Extensions4\PGK.Extensions4.csproj" />
-    <ProjectReference Include="..\PGK.Extensions\PGK.Extensions.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="JUnitTestLogger4GitHub" Version="1.1.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Runtime.Caching" Version="9.0.0" />
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Data.Entity.Design" />
   </ItemGroup>
 </Project>

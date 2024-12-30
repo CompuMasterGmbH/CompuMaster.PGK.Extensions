@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net48;net8.0</TargetFrameworks>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>PGK.Extensions.Test4</AssemblyTitle>
+    <Product>PGK.Extensions.Test4</Product>
+    <Copyright>Copyright ©  2011</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Update="System.Core">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PGK.Extensions4\CompuMaster.PGK.Extensions4.csproj" />
+    <ProjectReference Include="..\PGK.Extensions\CompuMaster.PGK.Extensions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="JUnitTestLogger4GitHub" Version="1.1.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="Microsoft.Testing.Platform" Version="1.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="9.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
+  </ItemGroup>
+</Project>

@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions", "PGK.Extensions\PGK.Extensions.csproj", "{1CA53630-FE88-4618-BA42-78CF7F9FC1B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions", "PGK.Extensions\CompuMaster.PGK.Extensions.csproj", "{1CA53630-FE88-4618-BA42-78CF7F9FC1B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Web", "PGK.Extensions.Web\PGK.Extensions.Web.csproj", "{F2F9CDC0-CE88-4762-A5C3-8553B83B926B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Web", "PGK.Extensions.Web\CompuMaster.PGK.Extensions.Web.csproj", "{F2F9CDC0-CE88-4762-A5C3-8553B83B926B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Windows", "PGK.Extensions.Windows\PGK.Extensions.Windows.csproj", "{F36CE20A-DD8D-494C-82D2-BCBF0827A72F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Windows", "PGK.Extensions.Windows\CompuMaster.PGK.Extensions.Windows.csproj", "{F36CE20A-DD8D-494C-82D2-BCBF0827A72F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Windows.Forms", "PGK.Extensions.Windows.Forms\PGK.Extensions.Windows.Forms.csproj", "{B6081D90-3DBB-4E67-BEAA-3BF86141F0DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Windows.Forms", "PGK.Extensions.Windows.Forms\CompuMaster.PGK.Extensions.Windows.Forms.csproj", "{B6081D90-3DBB-4E67-BEAA-3BF86141F0DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Tests", "PGK.Extensions.Tests\PGK.Extensions.Tests.csproj", "{E6E69753-086D-406E-9A85-CE01BFA70B74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Tests", "PGK.Extensions.Tests\CompuMaster.PGK.Extensions.Tests.csproj", "{E6E69753-086D-406E-9A85-CE01BFA70B74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F63218A-D300-44A8-98B2-D14D2B4D84F7}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,15 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.MVC", "PGK.Extensions.MVC\PGK.Extensions.MVC.csproj", "{75D5CDDF-A77C-4B79-ABD5-3A8FB6324AF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.MVC", "PGK.Extensions.MVC\CompuMaster.PGK.Extensions.MVC.csproj", "{75D5CDDF-A77C-4B79-ABD5-3A8FB6324AF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Entity", "PGK.Extensions.Entity\PGK.Extensions.Entity.csproj", "{63F79BBE-46FF-4277-9195-14608E4DEBCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Entity", "PGK.Extensions.Entity\CompuMaster.PGK.Extensions.Entity.csproj", "{63F79BBE-46FF-4277-9195-14608E4DEBCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.RhinoMocks", "PGK.Extensions.RhinoMocks\PGK.Extensions.RhinoMocks.csproj", "{7C0DCE9B-4824-4406-924A-38B14A120DEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.RhinoMocks", "PGK.Extensions.RhinoMocks\CompuMaster.PGK.Extensions.RhinoMocks.csproj", "{7C0DCE9B-4824-4406-924A-38B14A120DEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions4", "PGK.Extensions4\PGK.Extensions4.csproj", "{0E7BAF97-BD4B-480C-912C-2503875A9053}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions4", "PGK.Extensions4\CompuMaster.PGK.Extensions4.csproj", "{0E7BAF97-BD4B-480C-912C-2503875A9053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGK.Extensions.Test4", "PGK.Extensions.Test4\PGK.Extensions.Test4.csproj", "{12031EE3-0471-42BA-92DA-BE088DE4B8FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Test4", "PGK.Extensions.Test4\CompuMaster.PGK.Extensions.Test4.csproj", "{12031EE3-0471-42BA-92DA-BE088DE4B8FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
