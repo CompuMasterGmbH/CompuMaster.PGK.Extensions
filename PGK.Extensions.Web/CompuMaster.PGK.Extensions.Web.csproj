@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net462;net8.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>PGK.Extensions.Web</AssemblyTitle>
     <Company>PGK GmbH</Company>
@@ -11,7 +11,6 @@
   <ItemGroup>
     <Reference Update="System.Core">
     </Reference>
-    <Reference Include="System.Web" />
     <Reference Update="System.Xml.Linq">
     </Reference>
   </ItemGroup>

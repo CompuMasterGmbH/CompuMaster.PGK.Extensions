@@ -1,4 +1,5 @@
-﻿using System.Web.UI;
+﻿#if NETFRAMEWORK
+using System.Web.UI;
 
 /// <summary>
 ///   Extensions classes for the ASP.NET ViewState StateBag class
@@ -87,3 +88,4 @@ public static class StateBagExtensions {
         state[key] = value;
     }
 }
+#endif

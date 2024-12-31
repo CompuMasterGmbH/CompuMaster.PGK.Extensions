@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>PGK.Extensions.MVC</AssemblyTitle>
     <Company>Sinclair Knight Merz</Company>
@@ -24,13 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Helpers">
-      <HintPath>libs\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages">
-      <HintPath>libs\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc">
-      <HintPath>libs\System.Web.Mvc.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
