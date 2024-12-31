@@ -7,6 +7,16 @@
     <Product>PGK.Extensions.Tests</Product>
     <Copyright>Copyright ©  2010</Copyright>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\logo_64x64.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <!-- Kompatibilität mit älteren .NET Framework-Projekten -->
   <PropertyGroup>

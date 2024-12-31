@@ -3,12 +3,29 @@
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyTitle>PGK.Extensions.RhinoMocks</AssemblyTitle>
+    <AssemblyTitle>PGK.Extensions.RhinoMocks (by CompuMaster GmbH)</AssemblyTitle>
     <Company>Microsoft</Company>
-    <Product>PGK.Extensions.RhinoMocks</Product>
-    <Copyright>Copyright © Microsoft 2011</Copyright>
-    <Version>2.0.0.0</Version>
+    <Product>PGK.Extensions.RhinoMocks (by CompuMaster GmbH)</Product>
+    <Copyright>Copyright © Microsoft 2011, CompuMaster GmbH 2024</Copyright>
+    <Version>2024.12.31.0</Version>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>logo_64x64.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\logo_64x64.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="RhinoMocks" Version="3.6.1" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />

@@ -3,11 +3,28 @@
     <OutputType>Library</OutputType>
     <TargetFrameworks>net462;net8.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyTitle>PGK.Extensions.Web</AssemblyTitle>
-    <Company>PGK GmbH</Company>
-    <Product>PGK.Extensions.Web</Product>
-    <Copyright>Copyright © PGK GmbH 2009</Copyright>
+    <AssemblyTitle>PGK.Extensions.Web (by CompuMaster GmbH)</AssemblyTitle>
+    <Company>CompuMaster GmbH</Company>
+    <Product>PGK.Extensions.Web (by CompuMaster GmbH)</Product>
+    <Copyright>Copyright © PGK GmbH 2009, CompuMaster GmbH 2024</Copyright>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>logo_64x64.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\logo_64x64.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Reference Update="System.Core">
     </Reference>

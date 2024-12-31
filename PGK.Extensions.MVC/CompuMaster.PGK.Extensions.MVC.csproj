@@ -3,18 +3,30 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net461</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyTitle>PGK.Extensions.MVC</AssemblyTitle>
+    <AssemblyTitle>PGK.Extensions.MVC (by CompuMaster GmbH)</AssemblyTitle>
     <Company>Sinclair Knight Merz</Company>
-    <Product>PGK.Extensions.MVC</Product>
-    <Copyright>Copyright © Sinclair Knight Merz 2010</Copyright>
-    <Version>2.0.0.0</Version>
+    <Product>PGK.Extensions.MVC (by CompuMaster GmbH)</Product>
+    <Copyright>Copyright © Sinclair Knight Merz 2010, CompuMaster GmbH 2024</Copyright>
+    <Version>2024.12.31.0</Version>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>logo_64x64.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <ItemGroup>
-    <!--
-    <PackageReference Include="HiNetCloud.System.Web.Helpers" Version="24.8.10.9" />
-    <PackageReference Include="HiNetCloud.System.Web.WebPages" Version="24.8.10.9" />
-    <PackageReference Include="System-Web-Helpers.dll" Version="1.0.0" />
-    -->
+    <None Include="..\logo_64x64.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
