@@ -10,7 +10,6 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Web;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using PGK.Extensions;
@@ -783,7 +782,7 @@ public static class ObjectExtensions
 				yield return FormatHTMLLine("</td></tr>", padding + 1);
 			}
 			else
-				yield return FormatHTMLLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", xElement.Name, HttpUtility.HtmlEncode(xElement.Value)), padding + 1);
+				yield return FormatHTMLLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", xElement.Name, System.Net.WebUtility.HtmlEncode(xElement.Value)), padding + 1);
 		}
 		yield return FormatHTMLLine("</table>", padding);
 	}

@@ -14,21 +14,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Tests", "PGK.Extensions.Tests\CompuMaster.PGK.Extensions.Tests.csproj", "{E6E69753-086D-406E-9A85-CE01BFA70B74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F63218A-D300-44A8-98B2-D14D2B4D84F7}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		PGK.Extensions.vsmdi = PGK.Extensions.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.MVC", "PGK.Extensions.MVC\CompuMaster.PGK.Extensions.MVC.csproj", "{75D5CDDF-A77C-4B79-ABD5-3A8FB6324AF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Entity", "PGK.Extensions.Entity\CompuMaster.PGK.Extensions.Entity.csproj", "{63F79BBE-46FF-4277-9195-14608E4DEBCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.RhinoMocks", "PGK.Extensions.RhinoMocks\CompuMaster.PGK.Extensions.RhinoMocks.csproj", "{7C0DCE9B-4824-4406-924A-38B14A120DEC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions4", "PGK.Extensions4\CompuMaster.PGK.Extensions4.csproj", "{0E7BAF97-BD4B-480C-912C-2503875A9053}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompuMaster.PGK.Extensions.Test4", "PGK.Extensions.Test4\CompuMaster.PGK.Extensions.Test4.csproj", "{12031EE3-0471-42BA-92DA-BE088DE4B8FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,26 +111,6 @@ Global
 		{7C0DCE9B-4824-4406-924A-38B14A120DEC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7C0DCE9B-4824-4406-924A-38B14A120DEC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7C0DCE9B-4824-4406-924A-38B14A120DEC}.Release|x86.ActiveCfg = Release|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{0E7BAF97-BD4B-480C-912C-2503875A9053}.Release|x86.ActiveCfg = Release|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{12031EE3-0471-42BA-92DA-BE088DE4B8FA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

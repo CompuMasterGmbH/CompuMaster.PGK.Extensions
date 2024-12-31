@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Web;
 
 /// <summary>
 /// </summary>
@@ -59,6 +58,6 @@ public class UriQueryString {
     /// <param name = "key">The key.</param>
     /// <param name = "value">The value.</param>
     public void Add(string key, string value) {
-        values.Add(key, HttpUtility.UrlEncode(value));
+        values.Add(key, System.Net.WebUtility.UrlEncode(value));
     }
 }
