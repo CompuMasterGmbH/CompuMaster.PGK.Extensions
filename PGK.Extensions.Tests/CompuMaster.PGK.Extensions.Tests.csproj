@@ -7,35 +7,53 @@
     <Product>PGK.Extensions.Tests</Product>
     <Copyright>Copyright ©  2010</Copyright>
   </PropertyGroup>
+
+  <!-- Kompatibilität mit älteren .NET Framework-Projekten -->
+  <PropertyGroup>
+    <UseAppHost>false</UseAppHost>
+    <EnableComHosting>false</EnableComHosting>
+    <DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
+    <DisableDefaultFrameworkItems>false</DisableDefaultFrameworkItems>
+  </PropertyGroup>
+  
   <ItemGroup>
     <Reference Update="System.Core">
     </Reference>
     <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net48'" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PGK.Extensions.RhinoMocks\CompuMaster.PGK.Extensions.RhinoMocks.csproj" />
+    <ProjectReference Include="..\PGK.Extensions.RhinoMocks\CompuMaster.PGK.Extensions.RhinoMocks.csproj" Condition="'$(TargetFramework)' == 'net48'" />
     <ProjectReference Include="..\PGK.Extensions\CompuMaster.PGK.Extensions.csproj" />
   </ItemGroup>
-  <!--
   <ItemGroup>
-    <Content Include="FilesForTestingPurpose\AnotherFile.txt" />
-    <Content Include="FilesForTestingPurpose\PGK.Extensions.sln" />
-    <Content Include="Used_for_testing.txt" />
+    <Content Include="FilesForTestingPurpose\AnotherFile.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FilesForTestingPurpose\Test.DirExtensions.txt.docstates.suo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FilesForTestingPurpose\Test.DirExtensions.suo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FilesForTestingPurpose\Test.DirExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FilesForTestingPurpose\Properties\AssemblyInfo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FilesForTestingPurpose\Used_for_testing.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  -->
   <ItemGroup>
     <PackageReference Include="JUnitTestLogger4GitHub" Version="1.1.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="Microsoft.Testing.Platform" Version="1.5.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
     <PackageReference Include="CompuMaster.Test.Should" Version="2.0.1" />
-    <!--
-    <PackageReference Include="Should-DotNetStandard" Version="1.0.0" />
-    <PackageReference Include="ShouldFluent" Version="1.1.19" />
-    <PackageReference Include="Should" Version="1.1.20" />
-    <PackageReference Include="FluentAssertions" Version="7.0.0" />
-    -->
+
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.DirectoryServices" Version="9.0.0" />
     <PackageReference Include="System.DirectoryServices.AccountManagement" Version="9.0.0" />

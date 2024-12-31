@@ -8,7 +8,8 @@ using System.IO;
 namespace PGK.Extensions.Tests
 {
 	[TestClass]
-	public class TextReaderExtensionsTest
+    [DeploymentItem(@"FilesForTestingPurpose", @"FilesForTestingPurpose")]
+    public class TextReaderExtensionsTest
 	{
 
 		TextReader reader;
@@ -16,10 +17,10 @@ namespace PGK.Extensions.Tests
 		[TestInitialize]
 		public void Initialize()
 		{
-			reader = File.OpenText(@"..\..\..\PGK.Extensions.Tests\used_for_testing.txt");
-		}
+            reader = File.OpenText(@"FilesForTestingPurpose/used_for_testing.dat");
+        }
 
-		[TestCleanup]
+        [TestCleanup]
 		public void Shutdown()
 		{
 			reader.Close();

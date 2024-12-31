@@ -1,11 +1,15 @@
-﻿using System.Data;
+﻿#if !NETFRAMEWORK
+    //System.MissingMethodException: Method not found: 'System.Reflection.Emit.AssemblyBuilder System.AppDomain.DefineDynamicAssembly(System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess)'.
+    //=> Known to fail at .NET 8 due to missing support by RhinoMocks (currently supported targetting to .NET Framework only)")
+#else
+using System.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks;
 using Should.Fluent;
 
 namespace PGK.Extensions.Tests
 {
-	[TestClass]
+    [TestClass]
     public class DbConnectionExtensionsTests
 	{
 		[TestMethod]
@@ -66,3 +70,4 @@ namespace PGK.Extensions.Tests
         }
 	}
 }
+#endif

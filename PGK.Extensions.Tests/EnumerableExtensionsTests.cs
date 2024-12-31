@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PGK.Extensions.Tests.TestObjects;
 using Should.Fluent;
@@ -338,52 +340,94 @@ namespace PGK.Extensions.Tests
 			"1?2?3?4?5".Should().Equal(strings.ConcatWith("?"));
 			"1?2??4?5".Should().Equal(stringsWithNull.ConcatWith("?"));
 
-			// Test default separator (doubles)
-			"123.46,123.40,123.00,4.00,5.00".Should().Equal(doubles.ConcatWith(formatString: "0.00"));
-			"123.46,123.40,,4.00,5.00".Should().Equal(doublesWithNull.ConcatWith(formatString: "0.00"));
 
-			// Test non-default separator (doubles)
-			"123.46?123.40?123.00?4.00?5.00".Should().Equal(doubles.ConcatWith("?", "0.00"));
-			"123.46?123.40??4.00?5.00".Should().Equal(doublesWithNull.ConcatWith("?", "0.00"));
-        }
-
-        #region BlockCopy
-
-        [TestMethod]
-        public void BlockCopyTest()
-        {
-            string[] source = new string[15];
-            for (int i = 0; i < source.Length; i++)
+            Console.WriteLine($"Aktuelle Default-Culture: {CultureInfo.CurrentCulture}");
+            using (new TemporaryDefaultCulture("de-DE"))
             {
-                source[i] = "string " + i.ToString();
-            }
+                Console.WriteLine($"Temporäre Default-Culture: {CultureInfo.CurrentCulture}");
 
-            int n = 0;
-            foreach (string[] block in source.BlockCopy(10))
+                // Test default separator (doubles)
+                "123,46,123,40,123,00,4,00,5,00".Should().Equal(doubles.ConcatWith(formatString: "0.00"));
+                "123,46,123,40,,4,00,5,00".Should().Equal(doublesWithNull.ConcatWith(formatString: "0.00"));
+
+                // Test non-default separator (doubles)
+                "123,46?123,40?123,00?4,00?5,00".Should().Equal(doubles.ConcatWith("?", "0.00"));
+                "123,46?123,40??4,00?5,00".Should().Equal(doublesWithNull.ConcatWith("?", "0.00"));
+            }
+            using (new TemporaryDefaultCulture("en-US"))
             {
-                for (int i = 0; i < block.Length; i++)
-                {
-                    Assert.AreEqual(string.Format("string {0}", i + n), block[i]);
-                }
-                n += 10;
-            }
-        }
+                Console.WriteLine($"Temporäre Default-Culture: {CultureInfo.CurrentCulture}");
 
-        [TestMethod]
-        public void BlockCopyWithPadding()
-        {
-            string[] source = new string[15];
-            for (int i = 0; i < source.Length; i++)
-            {
-                source[i] = "string " + i.ToString();
-            }
+                // Test default separator (doubles)
+                "123.46,123.40,123.00,4.00,5.00".Should().Equal(doubles.ConcatWith(formatString: "0.00"));
+                "123.46,123.40,,4.00,5.00".Should().Equal(doublesWithNull.ConcatWith(formatString: "0.00"));
 
-            foreach (string[] block in source.BlockCopy(10, true))
-            {
-                Assert.AreEqual(10, block.Length);
+                // Test non-default separator (doubles)
+                "123.46?123.40?123.00?4.00?5.00".Should().Equal(doubles.ConcatWith("?", "0.00"));
+                "123.46?123.40??4.00?5.00".Should().Equal(doublesWithNull.ConcatWith("?", "0.00"));
             }
-        }
+            Console.WriteLine($"Zurückgesetzte Default-Culture: {CultureInfo.CurrentCulture}");
+		}
 
-        #endregion
-    }
+		#region BlockCopy
+
+		[TestMethod]
+		public void BlockCopyTest()
+		{
+			string[] source = new string[15];
+			for (int i = 0; i < source.Length; i++)
+			{
+				source[i] = "string " + i.ToString();
+			}
+
+			int n = 0;
+			foreach (string[] block in source.BlockCopy(10))
+			{
+				for (int i = 0; i < block.Length; i++)
+				{
+					Assert.AreEqual(string.Format("string {0}", i + n), block[i]);
+				}
+				n += 10;
+			}
+		}
+
+		[TestMethod]
+		public void BlockCopyWithPadding()
+		{
+			string[] source = new string[15];
+			for (int i = 0; i < source.Length; i++)
+			{
+				source[i] = "string " + i.ToString();
+			}
+
+			foreach (string[] block in source.BlockCopy(10, true))
+			{
+				Assert.AreEqual(10, block.Length);
+			}
+		}
+
+		#endregion
+	}
+
+	public class TemporaryDefaultCulture : IDisposable
+	{
+		private readonly CultureInfo _originalCulture;
+		private readonly CultureInfo _originalUICulture;
+
+		public TemporaryDefaultCulture(string cultureName)
+		{
+			_originalCulture = Thread.CurrentThread.CurrentCulture;
+			_originalUICulture = Thread.CurrentThread.CurrentUICulture;
+
+			var newCulture = new CultureInfo(cultureName);
+			Thread.CurrentThread.CurrentCulture = newCulture;
+			Thread.CurrentThread.CurrentUICulture = newCulture;
+		}
+
+		public void Dispose()
+		{
+			Thread.CurrentThread.CurrentCulture = _originalCulture;
+			Thread.CurrentThread.CurrentUICulture = _originalUICulture;
+		}
+	}
 }

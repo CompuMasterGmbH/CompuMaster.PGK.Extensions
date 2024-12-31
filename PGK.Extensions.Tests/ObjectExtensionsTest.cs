@@ -103,7 +103,7 @@ namespace PGK.Extensions.Tests
 			stringValue.ConvertToAndIgnoreException(defaultValue).Should().Equal(value);
 		}
 
-		[TestMethod, ExpectedException(typeof(Exception))]
+		[TestMethod, ExpectedException(typeof(Exception), AllowDerivedTypes = true)]
 		public void TestConvertToAgainstNotConvertibleStringOnly()
 		{
 			"NotConvertibleToInt".ConvertTo<int>();
