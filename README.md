@@ -6,7 +6,7 @@ Supports .NET Standard 2.0, .NET Framework 4.8, .NET Core/5/6/7/8/9/...
 
 The .NET Extensions project provides the missing piece that you always expected to be part of the Framework Class Library.
 
-## History of project development
+## History of project development, credits and acknowledgements
 
 ### dnpextensions
 
@@ -26,6 +26,8 @@ Visit our team page.
 * Added support for .NET Standard 2.0, .NET Framework 4.8, .NET Core/5/6/7/8/9/... (for most of the PGK projects)
 * Therefore redesigned technology stack (dependency projects) to add support for .NET Standard 2.0
 * Re-publishing at NuGet gallery for common use (most of the PGK projects)
+
+Visit [www.compumaster.de](https://www.compumaster.de) to learn more about CompuMaster GmbH.
 
 ## What users are saying:
 
