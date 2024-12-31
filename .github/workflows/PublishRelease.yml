@@ -1,0 +1,190 @@
+name: Publish/Upload dotnet package on release
+
+# PLEASE NOTE: PUBLISHING/DEPLOYMENT
+# Release is to be created manually at GitHub releases management page
+# - release name usually contains "v1.2.3"
+# After creating a GitHub release, following actions will automatically run:
+# 1. NuGet package (version as defined in VS.Net project property "package version")
+# 2. Attaching of compiled binaries to GitHub release
+
+on:
+  release:
+    types: [created]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: .
+
+  # Name of project configuration for build as well as name of the bin output subdirectory (both must match for "dotnet pack" to find compiled files!)
+  BUILD_CONFIGURATION: Debug
+  BUILD_OUTPUT_SUBDIR: Debug
+  PACK_CONFIGURATION: Debug
+  # Name of build project which creates required output for packaging/deployment
+  BUILD_PROJECT_01: PGK.Extensions/CompuMaster.PGK.Extensions.csproj
+  BUILD_PROJECT_02: PGK.Extensions.Entity/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_03: PGK.Extensions.MVC/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_04: PGK.Extensions.RhinoMocks/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_05: PGK.Extensions.Web/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_06: PGK.Extensions.Windows/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_07: PGK.Extensions.Windows.Forms/CompuMaster.PGK.Extensions.Entity.csproj
+  # Name of directory (e.g. "bin") containing the subdirectory (e.g. "CI_CD") with all output files (*.dll)
+  BUILD_OUTPUT_BASEDIR_01: PGK.Extensions/bin
+  BUILD_OUTPUT_BASEDIR_02: PGK.Extensions.Entity/bin
+  BUILD_OUTPUT_BASEDIR_03: PGK.Extensions.MVC/bin
+  BUILD_OUTPUT_BASEDIR_04: PGK.Extensions.RhinoMocks/bin
+  BUILD_OUTPUT_BASEDIR_05: PGK.Extensions.Web/bin
+  BUILD_OUTPUT_BASEDIR_06: PGK.Extensions.Windows/bin
+  BUILD_OUTPUT_BASEDIR_07: PGK.Extensions.Windows.Forms/bin
+  # Name of project
+  PROJECT_NAME_01: CompuMaster.PGK.Extensions
+  PROJECT_NAME_02: CompuMaster.PGK.Extensions.Entity
+  PROJECT_NAME_03: CompuMaster.PGK.Extensions.MVC
+  PROJECT_NAME_04: CompuMaster.PGK.Extensions.RhinoMocks
+  PROJECT_NAME_05: CompuMaster.PGK.Extensions.Web
+  PROJECT_NAME_06: CompuMaster.PGK.Extensions.Windows
+  PROJECT_NAME_07: CompuMaster.PGK.Extensions.Windows.Forms
+  # BinariesZipName of project artifacts
+  ARTIFACTS_BIN_ZIP_01: bin-CM.PGK.Extensions.zip
+  ARTIFACTS_BIN_ZIP_02: bin-CM.PGK.Extensions.Entity.zip
+  ARTIFACTS_BIN_ZIP_03: bin-CM.PGK.Extensions.MVC.zip
+  ARTIFACTS_BIN_ZIP_04: bin-CM.PGK.Extensions.RhinoMocks.zip
+  ARTIFACTS_BIN_ZIP_05: bin-CM.PGK.Extensions.Web.zip
+  ARTIFACTS_BIN_ZIP_06: bin-CM.PGK.Extensions.Windows.zip
+  ARTIFACTS_BIN_ZIP_07: bin-CM.PGK.Extensions.Windows.Forms.zip
+
+
+jobs:
+    publish:
+        runs-on: windows-latest
+        #if: false # always skip job
+
+        env:
+          VersionPrefix: ${{  github.ref_name }}
+
+        steps:
+            - name: GitHub Tag for assembly versioning
+              run: |
+                #echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+                echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+                echo "Tag name from environment: ${{  env.VersionPrefix }}"
+
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup .NET Core
+              uses: actions/setup-dotnet@v4
+              with:
+                dotnet-version: 8.0.x
+
+            - name: Install dependencies
+              run: dotnet restore /p:Configuration=${{env.BUILD_CONFIGURATION}}
+
+            - name: Build
+              run: dotnet build --configuration=${{env.BUILD_CONFIGURATION}} --no-restore 
+
+            - name: Zip binaries ${{env.PROJECT_NAME_01}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_01}} ${{env.BUILD_OUTPUT_BASEDIR_01}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_02}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_02}} ${{env.BUILD_OUTPUT_BASEDIR_02}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_03}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_03}} ${{env.BUILD_OUTPUT_BASEDIR_03}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_04}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_04}} ${{env.BUILD_OUTPUT_BASEDIR_04}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_05}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_05}} ${{env.BUILD_OUTPUT_BASEDIR_05}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_06}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_06}} ${{env.BUILD_OUTPUT_BASEDIR_06}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+            - name: Zip binaries ${{env.PROJECT_NAME_07}}
+              run: Compress-Archive -DestinationPath ${{env.ARTIFACTS_BIN_ZIP_07}} ${{env.BUILD_OUTPUT_BASEDIR_07}}/${{env.BUILD_OUTPUT_SUBDIR}}
+
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_01}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_01}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_02}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_02}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_03}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_03}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_04}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_04}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_05}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_05}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_06}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_06}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish zipped binaries ${{env.PROJECT_NAME_07}}
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ${{env.ARTIFACTS_BIN_ZIP_07}}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+            - name: Pack ${{env.PROJECT_NAME_01}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_01}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_02}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_02}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_03}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_03}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_04}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_04}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_05}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_05}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_06}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_06}} --output .  
+
+            - name: Pack ${{env.PROJECT_NAME_07}}
+              run: dotnet pack --no-build --configuration=${{env.PACK_CONFIGURATION}} ${{env.BUILD_PROJECT_07}} --output .  
+
+
+            - name: PushNuget ${{env.PROJECT_NAME_01}} + ${{env.PROJECT_NAME_02}} + ${{env.PROJECT_NAME_03}} + ${{env.PROJECT_NAME_04}} + ${{env.PROJECT_NAME_05}} + ${{env.PROJECT_NAME_06}} + ${{env.PROJECT_NAME_07}}
+              run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate 
+
+            - name: Publish Package Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: Nupkg Artifacts
+                path: ./**/*.nupkg
