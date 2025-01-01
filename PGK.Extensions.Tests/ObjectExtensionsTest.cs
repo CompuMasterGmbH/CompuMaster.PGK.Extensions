@@ -317,10 +317,14 @@ namespace PGK.Extensions.Tests
 			Assert.IsNull(result);
 		}
 
-		[CLSCompliant(false)]
-		class SubClass : ObjectExtensionsTest {}
+#pragma warning disable CS3021 // Typ oder Element benötigt kein CLSCompliant-Attribut, da die Assembly kein CLSCompliant-Attribut besitzt
+#pragma warning disable UTA001 // Für die nicht öffentliche Klasse 'PGK.Extensions.Tests.ObjectExtensionsTest+SubClass' definiertes Attribut 'TestClass'.
+        [CLSCompliant(false)]
+        class SubClass : ObjectExtensionsTest {}
+#pragma warning restore UTA001 // Für die nicht öffentliche Klasse 'PGK.Extensions.Tests.ObjectExtensionsTest+SubClass' definiertes Attribut 'TestClass'.
+#pragma warning restore CS3021 // Typ oder Element benötigt kein CLSCompliant-Attribut, da die Assembly kein CLSCompliant-Attribut besitzt
 
-		[TestMethod]
+        [TestMethod]
       public void GetAttributes_FromObject()
       {
 			var testValue = new SubClass();

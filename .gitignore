@@ -48,3 +48,5 @@ obj
 bin
 CurrentVersions
 TestResults
+test-results
+test-results-net48
