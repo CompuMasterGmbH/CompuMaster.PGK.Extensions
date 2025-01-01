@@ -28,8 +28,43 @@ env:
 
 jobs:
 
+    build:
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup .NET Core
+              uses: actions/setup-dotnet@v4
+              with:
+                 dotnet-version: 8.0.x
+
+            - name: Dir Listing (Win)
+              if: startsWith(matrix.os, 'windows')
+              run: dir
+            - name: Dir Listing (Linux/Mac)
+              if: (!startsWith(matrix.os, 'windows'))
+              run: ls -la
+
+            - name: Install dependencies
+              run: dotnet restore /p:Configuration=${{env.BUILD_CONFIGURATION}}
+
+            - name: Build
+              run: dotnet build --configuration=${{env.BUILD_CONFIGURATION}} --no-restore 
+
+            #- name: Run Unit Tests
+            #  run: dotnet test --framework net8.0 --results-directory test-results --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$ --no-restore 
+
+            - name: Publish Build Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: build-artifacts
+                path: |
+                  **/bin
+
     test:
-        #needs: build
+        needs: build
         runs-on: ${{ matrix.os }}
 
         strategy:
@@ -53,44 +88,32 @@ jobs:
               #- os: windows-latest
               #  arch: x86_64
 
-        # the build-and-test job might be skipped, we don't need to run this job then
-        #if: success() || failure()
 
         env:
           RESULTS_PATH: TestResults.xml
 
         steps:
-            - name: Checkout
+            - name: Checkout Code
               uses: actions/checkout@v4
-
+            
+            - name: Download Build Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: build-artifacts
+                path: build
+            
             - name: Setup .NET Core
               uses: actions/setup-dotnet@v4
               with:
-                 dotnet-version: 8.0.x
-
-            - name: Dir Listing (Win)
-              if: startsWith(matrix.os, 'windows')
-              run: dir
-            - name: Dir Listing (Linux/Mac)
-              if: (!startsWith(matrix.os, 'windows'))
-              run: ls -la
-
-            - name: Install dependencies
-              run: dotnet restore /p:Configuration=${{env.BUILD_CONFIGURATION}}
-
-            - name: Build
-              run: dotnet build --configuration=${{env.BUILD_CONFIGURATION}}$ --no-restore 
-
-            #- name: Run Unit Tests
-            #  run: dotnet test --framework net8.0 --results-directory test-results --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$ --no-restore 
-
+                dotnet-version: 8.0.x
+            
             - name: Run Unit Tests (.NET Framework 4.8/Windows)
               if: startsWith(matrix.os, 'windows')
-              run: dotnet test --framework net48 --results-directory test-results-net48 --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$
+              run: dotnet test --no-restore --framework net48 --results-directory test-results-net48 --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$
 
             - name: Run Unit Tests (.NET/all platforms)
               #if: (!startsWith(matrix.os, 'windows'))
-              run: dotnet test --framework net8.0 --results-directory test-results --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$
+              run: dotnet test --no-restore --framework net8.0 --results-directory test-results --logger junit --configuration=${{env.BUILD_CONFIGURATION}}$
 
             #- name: Dir Listing (Win) test-results
             #  if: startsWith(matrix.os, 'windows')
