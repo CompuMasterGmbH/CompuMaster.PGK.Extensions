@@ -158,13 +158,13 @@ jobs:
               uses: actions/upload-artifact@v4
               if: always() && startsWith(matrix.os, 'windows')
               with:
-                name: NUnit Test Results ${{ matrix.os }} - .NET Framework 4.8/Windows
+                name: NUnit Test Results ${{ matrix.os }} - .NET Framework 4.8 - Windows
                 path: "test-results-net48/TestResults.xml"
 
             - name: Publish Unit Test Results (.NET/all platforms)
               uses: actions/upload-artifact@v4
               if: always()
               with:
-                name: NUnit Test Results ${{ matrix.os }} - .NET/all platforms
+                name: NUnit Test Results ${{ matrix.os }} - .NET - all platforms
                 path: "test-results/TestResults.xml"
 
