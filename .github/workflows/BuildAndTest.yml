@@ -36,31 +36,15 @@ jobs:
             include: 
               - os: macos-latest
                 runNetExe: mono
-                # Configuration type to build
                 env:  
                     BUILD_CONFIGURATION: CI_CD
-              #  arch: x86_64
               - os: ubuntu-latest
-                # Configuration type to build
                 env:  
                     BUILD_CONFIGURATION: CI_CD
-              #  arch: x86
-              #- os: ubuntu-latest
-              #  arch: x86_64
-              #- os: ubuntu-latest
-              #  arch: arm
               - os: windows-latest
-                # Configuration type to build
                 env: 
                     BUILD_CONFIGURATION: Debug
-              #  build_configuration_suffix: "_WIN"
-              #  arch: x86
-              #- os: windows-latest
-              #  arch: x86_64
 
-
-        env:
-          RESULTS_PATH: TestResults.xml
 
         steps:
             - name: Checkout Code
@@ -71,12 +55,26 @@ jobs:
               with:
                 dotnet-version: 8.0.x
             
-            - name: Install dependencies
+            - name: Install dependencies Win
+              if: startsWith(matrix.os, 'windows')
+              run: dotnet restore /p:Configuration=$env:BUILD_CONFIGURATION
+              env:
+                BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
+
+            - name: Install dependencies Linux/Mac
+              if: (!startsWith(matrix.os, 'windows'))
               run: dotnet restore /p:Configuration=$BUILD_CONFIGURATION
               env:
                 BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
 
-            - name: Build
+            - name: Build Win
+              if: startsWith(matrix.os, 'windows')
+              run: dotnet build --configuration=$env:BUILD_CONFIGURATION --no-restore 
+              env:
+                BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
+
+            - name: Build Linux/Mac
+              if: (!startsWith(matrix.os, 'windows'))
               run: dotnet build --configuration=$BUILD_CONFIGURATION --no-restore 
               env:
                 BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
@@ -90,12 +88,18 @@ jobs:
 
             - name: Run Unit Tests (.NET Framework 4.8/Windows)
               if: startsWith(matrix.os, 'windows')
-              run: dotnet test --no-restore --framework net48 --results-directory test-results-net48 --logger junit --configuration=$BUILD_CONFIGURATION
+              run: dotnet test --no-restore --framework net48 --results-directory test-results-net48 --logger junit --configuration=$env:BUILD_CONFIGURATION
               env:
                 BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
 
-            - name: Run Unit Tests (.NET/all platforms)
-              #if: (!startsWith(matrix.os, 'windows'))
+            - name: Run Unit Tests (.NET/Windows)
+              if: startsWith(matrix.os, 'windows')
+              run: dotnet test --no-restore --framework net8.0 --results-directory test-results --logger junit --configuration=$env:BUILD_CONFIGURATION
+              env:
+                BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
+
+            - name: Run Unit Tests (.NET/Linux/Mac)
+              if: (!startsWith(matrix.os, 'windows'))
               run: dotnet test --no-restore --framework net8.0 --results-directory test-results --logger junit --configuration=$BUILD_CONFIGURATION
               env:
                 BUILD_CONFIGURATION: ${{ matrix.env.BUILD_CONFIGURATION }}
