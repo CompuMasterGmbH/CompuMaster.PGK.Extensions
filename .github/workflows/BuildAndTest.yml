@@ -23,47 +23,9 @@ env:
   # Path to the solution file relative to the root of the project
   SOLUTION_FILE_PATH: .
 
-  # Configuration type to build
-  BUILD_CONFIGURATION: Debug
-
 jobs:
 
-    build:
-        runs-on: windows-latest
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-
-            - name: Setup .NET Core
-              uses: actions/setup-dotnet@v4
-              with:
-                 dotnet-version: 8.0.x
-
-            - name: Dir Listing (Win)
-              run: dir
-
-            - name: Install dependencies
-              run: dotnet restore /p:Configuration=${{env.BUILD_CONFIGURATION}}
-
-            - name: Build
-              run: dotnet build --configuration=${{env.BUILD_CONFIGURATION}} --no-restore 
-
-            #- name: Run Unit Tests
-            #  run: dotnet test --framework net8.0 --results-directory test-results --logger junit --configuration=${{env.BUILD_CONFIGURATION}} --no-restore 
-
-            - name: Dir Listing (Win)
-              run: dir
-
-            - name: Publish Build Artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                name: build-artifacts
-                path: |
-                  **/bin
-
-    test:
-        needs: build
+    build-and-test:
         runs-on: ${{ matrix.os }}
 
         strategy:
@@ -74,14 +36,20 @@ jobs:
             include: 
               - os: macos-latest
                 runNetExe: mono
+                # Configuration type to build
+                BUILD_CONFIGURATION: CI_CD
               #  arch: x86_64
-              #- os: ubuntu-latest
+              - os: ubuntu-latest
+                # Configuration type to build
+                BUILD_CONFIGURATION: CI_CD
               #  arch: x86
               #- os: ubuntu-latest
               #  arch: x86_64
               #- os: ubuntu-latest
               #  arch: arm
-              #- os: windows-latest
+              - os: windows-latest
+                # Configuration type to build
+                BUILD_CONFIGURATION: Debug
               #  build_configuration_suffix: "_WIN"
               #  arch: x86
               #- os: windows-latest
@@ -95,17 +63,17 @@ jobs:
             - name: Checkout Code
               uses: actions/checkout@v4
             
-            - name: Download Build Artifacts
-              uses: actions/download-artifact@v4
-              with:
-                name: build-artifacts
-                path: build
-            
             - name: Setup .NET Core
               uses: actions/setup-dotnet@v4
               with:
                 dotnet-version: 8.0.x
             
+            - name: Install dependencies
+              run: dotnet restore /p:Configuration=${{env.BUILD_CONFIGURATION}}
+
+            - name: Build
+              run: dotnet build --configuration=${{env.BUILD_CONFIGURATION}} --no-restore 
+
             #- name: Dir Listing (Win)
             #  if: startsWith(matrix.os, 'windows')
             #  run: dir
