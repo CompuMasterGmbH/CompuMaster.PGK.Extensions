@@ -25,11 +25,11 @@ env:
   # Name of build project which creates required output for packaging/deployment
   BUILD_PROJECT_01: PGK.Extensions/CompuMaster.PGK.Extensions.csproj
   BUILD_PROJECT_02: PGK.Extensions.Entity/CompuMaster.PGK.Extensions.Entity.csproj
-  BUILD_PROJECT_03: PGK.Extensions.MVC/CompuMaster.PGK.Extensions.Entity.csproj
-  BUILD_PROJECT_04: PGK.Extensions.RhinoMocks/CompuMaster.PGK.Extensions.Entity.csproj
-  BUILD_PROJECT_05: PGK.Extensions.Web/CompuMaster.PGK.Extensions.Entity.csproj
-  BUILD_PROJECT_06: PGK.Extensions.Windows/CompuMaster.PGK.Extensions.Entity.csproj
-  BUILD_PROJECT_07: PGK.Extensions.Windows.Forms/CompuMaster.PGK.Extensions.Entity.csproj
+  BUILD_PROJECT_03: PGK.Extensions.MVC/CompuMaster.PGK.Extensions.MVC.csproj
+  BUILD_PROJECT_04: PGK.Extensions.RhinoMocks/CompuMaster.PGK.Extensions.RhinoMocks.csproj
+  BUILD_PROJECT_05: PGK.Extensions.Web/CompuMaster.PGK.Extensions.Web.csproj
+  BUILD_PROJECT_06: PGK.Extensions.Windows/CompuMaster.PGK.Extensions.Windows.csproj
+  BUILD_PROJECT_07: PGK.Extensions.Windows.Forms/CompuMaster.PGK.Extensions.Windows.Forms.csproj
   # Name of directory (e.g. "bin") containing the subdirectory (e.g. "CI_CD") with all output files (*.dll)
   BUILD_OUTPUT_BASEDIR_01: PGK.Extensions/bin
   BUILD_OUTPUT_BASEDIR_02: PGK.Extensions.Entity/bin
