@@ -38,63 +38,63 @@ Visit [www.compumaster.de](https://www.compumaster.de) to learn more about Compu
 
 ## PGK.Extensions (Core)
 
-System.Array
-System.Byte[]
-System.Collections.Generic.ICollection<T>
-System.Collections.Generic.IEnumerable<T>
-System.Collections.Generic.IList<T>
-System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-System.ComponentModel.IComponent
-System.Data.DataRow
-System.Data.DataRowView
-System.Data.IDataReader
-System.DateTime
-System.DateTimeOffset
-System.Dictionary
-System.Double
-System.Drawing.Bitmap
-System.Exception
-System.Float
-System.IComparable<T>
-System.IO.DirectoryInfo
-System.IO.FileInfo
-System.IO.FileInfo[] (batch operations on array)
-System.IO.Stream
-System.IO.TextReader
-System.Int32
-System.Int64
-System.Net.Sockets
-System.Object
-System.String
-System.String[]
-System.TimeSpan
-System.Type
-System.ValueType (all structs)
-System.Xml.XmlNode
-System.Xml.Serialization (Xml serialization operations on objects)
+* System.Array
+* System.Byte[]
+* System.Collections.Generic.ICollection<T>
+* System.Collections.Generic.IEnumerable<T>
+* System.Collections.Generic.IList<T>
+* System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
+* System.ComponentModel.IComponent
+* System.Data.DataRow
+* System.Data.DataRowView
+* System.Data.IDataReader
+* System.DateTime
+* System.DateTimeOffset
+* System.Dictionary
+* System.Double
+* System.Drawing.Bitmap
+* System.Exception
+* System.Float
+* System.IComparable<T>
+* System.IO.DirectoryInfo
+* System.IO.FileInfo
+* System.IO.FileInfo[] (batch operations on array)
+* System.IO.Stream
+* System.IO.TextReader
+* System.Int32
+* System.Int64
+* System.Net.Sockets
+* System.Object
+* System.String
+* System.String[]
+* System.TimeSpan
+* System.Type
+* System.ValueType (all structs)
+* System.Xml.XmlNode
+* System.Xml.Serialization (Xml serialization operations on objects)
 
 ## PGK.Extensions.Web (ASP.NET)
 
-System.Web.UI.Control
-System.Web.UI.StateBag
-System.Web.SessionState.HttpSessionState
-System.Web.HttpResponse
-System.Net.HttpListenerContext
+* System.Web.UI.Control
+* System.Web.UI.StateBag
+* System.Web.SessionState.HttpSessionState
+* System.Web.HttpResponse
+* System.Net.HttpListenerContext
 
 ## PGK.Extensions.Windows (WPF)
 
-System.Windows.UIElement
-System.Windows.Media.Imaging.BitmapSource
+* System.Windows.UIElement
+* System.Windows.Media.Imaging.BitmapSource
 
 ## PGK.Extensions.Windows.Forms (Windows Forms)
 
-System.Windows.Forms.Control
+* System.Windows.Forms.Control
 
 ## PGK.Extensions.MVC (ASP.NET MVC) .NET Framework 4.8
 
-System.Web.Mvc.HtmlHelper
-System.Web.HttpSessionStateBase
-System.Web.Routing
+* System.Web.Mvc.HtmlHelper
+* System.Web.HttpSessionStateBase
+* System.Web.Routing
 
 ## Requirements
 
