@@ -1,4 +1,4 @@
-﻿#if !NETFRAMEWORK
+﻿#if !NETFRAMEWORK || CI_CD
     //System.MissingMethodException: Method not found: 'System.Reflection.Emit.AssemblyBuilder System.AppDomain.DefineDynamicAssembly(System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess)'.
     //=> Known to fail at .NET 8 due to missing support by RhinoMocks (currently supported targetting to .NET Framework only)")
 #else

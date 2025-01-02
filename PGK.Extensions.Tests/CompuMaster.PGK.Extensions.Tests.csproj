@@ -6,6 +6,8 @@
     <AssemblyTitle>PGK.Extensions.Tests</AssemblyTitle>
     <Product>PGK.Extensions.Tests</Product>
     <Copyright>Copyright ©  2010</Copyright>
+    <Configurations>Debug;Release;CI_CD</Configurations>
+    <DefineConstants Condition="'$(Configuration)' == 'CI_CD'">CI_CD</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\logo_64x64.png">
