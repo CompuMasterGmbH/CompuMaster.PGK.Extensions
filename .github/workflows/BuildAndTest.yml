@@ -37,11 +37,13 @@ jobs:
               - os: macos-latest
                 runNetExe: mono
                 # Configuration type to build
-                BUILD_CONFIGURATION: CI_CD
+                env:  
+                    BUILD_CONFIGURATION: CI_CD
               #  arch: x86_64
               - os: ubuntu-latest
                 # Configuration type to build
-                BUILD_CONFIGURATION: CI_CD
+                env:  
+                    BUILD_CONFIGURATION: CI_CD
               #  arch: x86
               #- os: ubuntu-latest
               #  arch: x86_64
@@ -49,7 +51,8 @@ jobs:
               #  arch: arm
               - os: windows-latest
                 # Configuration type to build
-                BUILD_CONFIGURATION: Debug
+                env: 
+                    BUILD_CONFIGURATION: Debug
               #  build_configuration_suffix: "_WIN"
               #  arch: x86
               #- os: windows-latest
