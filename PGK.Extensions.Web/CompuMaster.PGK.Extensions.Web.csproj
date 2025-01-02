@@ -3,10 +3,11 @@
     <OutputType>Library</OutputType>
     <TargetFrameworks>net462;net8.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Version>2025.01.02.0</Version>
     <AssemblyTitle>PGK.Extensions.Web (by CompuMaster GmbH)</AssemblyTitle>
     <Company>CompuMaster GmbH</Company>
     <Product>PGK.Extensions.Web (by CompuMaster GmbH)</Product>
-    <Copyright>Copyright © PGK GmbH 2009, CompuMaster GmbH 2024</Copyright>
+    <Copyright>Copyright © PGK GmbH 2009, CompuMaster GmbH 2024,2025</Copyright>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageIcon>logo_64x64.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

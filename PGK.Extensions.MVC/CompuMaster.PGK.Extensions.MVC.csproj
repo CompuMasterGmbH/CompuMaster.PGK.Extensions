@@ -6,8 +6,8 @@
     <AssemblyTitle>PGK.Extensions.MVC (by CompuMaster GmbH)</AssemblyTitle>
     <Company>Sinclair Knight Merz</Company>
     <Product>PGK.Extensions.MVC (by CompuMaster GmbH)</Product>
-    <Copyright>Copyright © Sinclair Knight Merz 2010, CompuMaster GmbH 2024</Copyright>
-    <Version>2024.12.31.0</Version>
+    <Copyright>Copyright © Sinclair Knight Merz 2010, CompuMaster GmbH 2024,2025</Copyright>
+    <Version>2025.01.02.0</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageIcon>logo_64x64.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

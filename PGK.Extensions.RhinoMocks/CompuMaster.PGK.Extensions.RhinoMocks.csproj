@@ -6,8 +6,8 @@
     <AssemblyTitle>PGK.Extensions.RhinoMocks (by CompuMaster GmbH)</AssemblyTitle>
     <Company>Microsoft</Company>
     <Product>PGK.Extensions.RhinoMocks (by CompuMaster GmbH)</Product>
-    <Copyright>Copyright © Microsoft 2011, CompuMaster GmbH 2024</Copyright>
-    <Version>2024.12.31.0</Version>
+    <Copyright>Copyright © Microsoft 2011, CompuMaster GmbH 2024,2025</Copyright>
+    <Version>2025.01.02.0</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageIcon>logo_64x64.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

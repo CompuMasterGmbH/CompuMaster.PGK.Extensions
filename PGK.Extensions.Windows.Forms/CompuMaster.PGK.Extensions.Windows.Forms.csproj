@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Version>2024.12.31.0</Version>
+    <Version>2025.01.02.0</Version>
     <AssemblyTitle>PGK.Extensions.Windows/WPF (by CompuMaster GmbH)</AssemblyTitle>
     <Product>PGK.Extensions.Windows/WPF (by CompuMaster GmbH)</Product>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
