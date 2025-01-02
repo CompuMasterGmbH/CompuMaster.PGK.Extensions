@@ -17,7 +17,7 @@ namespace PGK.Extensions.Tests
 		[TestInitialize]
 		public void Initialize()
 		{
-            reader = File.OpenText(@"FilesForTestingPurpose/used_for_testing.dat");
+            reader = File.OpenText(@"./FilesForTestingPurpose/Used_for_testing.dat");
         }
 
         [TestCleanup]
@@ -43,8 +43,8 @@ namespace PGK.Extensions.Tests
 		{
 			var sb = new StringBuilder();
 			int c = 0;
-			reader.IterateLines(lin => { ++c;  sb.AppendLine(lin); });
-			Assert.AreEqual(136, sb.Length);		// 136 = (32 line  + CRLF)*4 
+			reader.IterateLines(lin => { ++c;  sb.Append(lin + "\r\n"); }); // CRLF for all platforms since text file is already created with CRLF line encoding
+            Assert.AreEqual(136, sb.Length);		// 136 = (32 line  + CRLF)*4 
 			Assert.AreEqual(4, c);
 			
 		}

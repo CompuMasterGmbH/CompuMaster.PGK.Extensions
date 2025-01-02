@@ -15,7 +15,7 @@ namespace PGK.Extensions.Tests
     [TestClass()]
     public class FileInfoExtensionsTest
     {
-        private const string TestDir = "C:\\PGTestFolder\\";
+        private static string TestDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "PGTestFolder") + System.IO.Path.DirectorySeparatorChar; //e.g. "C:\\Temp\\PGTestFolder\\";
 
         #region Additional test attributes
         // 
